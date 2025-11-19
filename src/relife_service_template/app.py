@@ -19,11 +19,18 @@ except ImportError:
 configure_logging()
 
 app = FastAPI(
-    title="ReLIFE Service Template",
-    description="A project template for ReLIFE service HTTP APIs",
+    title="Technical Service APIs",
+    description="FastAPI application for all technical indicators",
     version=__version__,
 )
 
 app.include_router(health.router)
 app.include_router(auth.router)
 app.include_router(examples.router)
+
+#Technical service endpoints
+app.include_router(ee_router)
+app.include_router(rei_router)
+app.include_router(sei_router)
+app.include_router(uc_router)
+app.include_router(fv_router)
